@@ -1,0 +1,22 @@
+{% extends "AppCoder/padre.html" %}
+
+{% load static %}
+
+{% block titulo %}            
+Bienvenido a props.com
+{% endblock %} 
+
+{% block subtitulo %}            
+
+<form action="/AppCoder/resultados/" method="GET"> {% csrf_token %}
+    <input type="text" name="nombre" id="nombre">
+    <input type="submit" value="Buscar">
+</form>
+
+<p>Estamos buscando la propiedad llamada: {{nombre}}</p>
+{% for nombre in nombre %}
+    <p>Nombre: {{propiedad.nombre}} ---- Ubicacion:{{propiedad.ubicacion}}</p>
+
+{% endfor %}
+
+{% endblock %}
